@@ -10,11 +10,12 @@
         name;
         weight;
         speed;
-
-        constructor(name, weight, speed) {
+        status
+        constructor(name, weight, speed,status) {
             this.name = name
             this.weight = weight
-            this.speed = speed
+            this.speed = speed;
+            this.status = status
         }
 
         getName() {
@@ -33,14 +34,6 @@
             this.weight = weight
         }
 
-        getHealth() {
-            return this.health
-        }
-
-        setHealth(health) {
-            this.health = health
-        }
-
         getSpeed() {
             return this.speed
         }
@@ -53,26 +46,26 @@
             console.log(string)
         }
 
-        isAlive() {
-            if (this.weight === 0) {
-                return false
-            } else {
-                return true
+        getStatus(){
+            if (this.weight === 0){
+                console.log(name+ 'da chet')
+            }else {
+                console.log(name+ 'con song')
             }
         }
+
     }
 
     class Cat {
         name;
         weight;
-        speed;
-        Mouse;
+        maxSpeed;
 
-        constructor(name, weight, speed, Mouse) {
+
+        constructor(name, weight, maxSpeed) {
             this.name = name
             this.weight = weight
-            this.speed = speed
-            this.Mouse = mouse
+            this.maxSpeed = maxSpeed
         }
 
         getName() {
@@ -104,25 +97,30 @@
         }
 
         catch(Mouse) {
-            if (this.speed > Mouse.speed) {
+            if (this.maxSpeed >= Mouse.speed) {
                 console.log('da bat duoc')
+                return true
             } else {
                 console.log('khong bat duoc')
+                return false
             }
         }
 
-        // eat(Mouse) {
-        //     if ()
-        //
-        // }
+        eat(Mouse) {
+            if (this.catch(Mouse)&&Mouse.status){
+                this.weight += Mouse.weight
+                Mouse.status = false
+            }else {
+                console.log('khong an duoc')
+            }
+        }
 
     }
-
-    let mouse = new Mouse('Jerry', 10, 10)
-    let cat = new Cat('Tom', 20, 15, 'Jerry')
+    let mouse = new Mouse('Jerry', 10, 10,true)
+    let cat = new Cat('Tom', 20, 15,)
     console.log(cat.catch(mouse))
-    cat.sounding('asd')
-    mouse.sounding('das')
+    console.log(cat.eat(mouse))
+    console.log(cat.weight)
 
 
 

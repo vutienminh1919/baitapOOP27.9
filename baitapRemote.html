@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Remote{
+        code;
+        constructor(code) {
+            this.code = code
+        }
+        channelControl(tv,num){
+            tv.channelControl(num)
+        }
+        soundControl(tv,num){
+            return tv.soundControl(num)
+        }
+        soundControlDown(tv,num){
+            return tv.soundControlDown(num)
+        }
+        controlTv(tv){
+            if (tv.getStatus()){
+                tv.setStatus(false)
+            }else {
+                tv.setStatus(true)
+            }
+        }
+
+    }
+
+    class Tv{
+        channel;
+        sound;
+        status;
+        constructor(channel,sound) {
+            this.channel = channel
+            this.sound = sound
+            this.status = false
+        }
+        getSound(){
+            if (this.status === true){
+                console.log('tv is at '+ this. sound + ' volome')
+            }else {
+                console.log('please turn tv on')
+            }
+        }getChannel(){
+            if (this.status === true){
+                console.log('tv is on channel ')
+            }else {
+                console.log('please tui=rn tv on')
+            }
+        }
+        channelControl(channel){
+            if (this.status === true){
+                this.channel = this.channel
+                console.log('go to channel '+ channel)
+            }
+        }soundControlUp(num){
+            if(this.status === true){
+                this.sound+= num
+                console.log(' sound up '+ num)
+            }else {
+                console.log('tv is off')
+            }
+        }soundControlDown(num){
+            if (this.status === true){
+                this.sound -= num
+                console.log(' sound down '+ num )
+            }else {
+                console.log('tv is off')
+            }
+        }
+        getStatus(){
+            return this.status
+        }
+        setStatus(status){
+            this.status = status
+        }
+    }
+    let tiVi = new Tv(2,5)
+    let remote = new Remote(2)
+
+
+</script>
+
+</body>
+</html>
