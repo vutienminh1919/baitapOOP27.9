@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<SCRIPT>
+    class Mouse {
+        name;
+        weight;
+        speed;
+
+        constructor(name, weight, speed) {
+            this.name = name
+            this.weight = weight
+            this.speed = speed
+        }
+
+        getName() {
+            return this.name
+        }
+
+        setName(name) {
+            this.name = name
+        }
+
+        getWeight() {
+            return this.weight
+        }
+
+        setWeight(weight) {
+            this.weight = weight
+        }
+
+        getHealth() {
+            return this.health
+        }
+
+        setHealth(health) {
+            this.health = health
+        }
+
+        getSpeed() {
+            return this.speed
+        }
+
+        setSpeed(speed) {
+            this.speed = speed
+        }
+
+        sounding(string) {
+            console.log(string)
+        }
+
+        isAlive() {
+            if (this.weight === 0) {
+                return false
+            } else {
+                return true
+            }
+        }
+    }
+
+    class Cat {
+        name;
+        weight;
+        speed;
+        Mouse;
+
+        constructor(name, weight, speed, Mouse) {
+            this.name = name
+            this.weight = weight
+            this.speed = speed
+            this.Mouse = mouse
+        }
+
+        getName() {
+            return this.name
+        }
+
+        setName(name) {
+            this.name = name
+        }
+
+        getWeight() {
+            return this.weight
+        }
+
+        setWeight(weight) {
+            this.weight = weight
+        }
+
+        getSpeed() {
+            return this.speed
+        }
+
+        setSpeed(speed) {
+            this.speed = speed
+        }
+
+        sounding(string) {
+            console.log(string)
+        }
+
+        catch(Mouse) {
+            if (this.speed > Mouse.speed) {
+                console.log('da bat duoc')
+            } else {
+                console.log('khong bat duoc')
+            }
+        }
+
+        // eat(Mouse) {
+        //     if ()
+        //
+        // }
+
+    }
+
+    let mouse = new Mouse('Jerry', 10, 10)
+    let cat = new Cat('Tom', 20, 15, 'Jerry')
+    console.log(cat.catch(mouse))
+    cat.sounding('asd')
+    mouse.sounding('das')
+
+
+
+</SCRIPT>
+</body>
+</html>

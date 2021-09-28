@@ -5,12 +5,89 @@
     <title>Title</title>
 </head>
 <body>
+<button onclick="on()">TurnOn</button>
+<button onclick="off()">TurnOff</button>
 <script>
-    class Switch{
+
+    class Switch {
         status;
-        lamp;
-        constructor() {
+        lamb;
+
+        constructor(status) {
+            this.status = status
         }
+
+        connectToLamp(ElectricLamp) {
+            this.lamb = ElectricLamp
+        }
+
+        getStatus() {
+            if (this.status) {
+                console.log('công tắc đã bật')
+            } else {
+                console.log('công tắc chưa bật')
+            }
+        }
+
+        switchOn() {
+            if (this.lamb !== undefined) {
+                this.lamb.turnOn()
+                this.status = true
+            } else {
+                console.log("Kết nối đã ban êy")
+            }
+
+        }
+
+        switchOff() {
+            if (this.lamb !== undefined) {
+                this.lamb.turnOff()
+                this.status = false
+            } else {
+                console.log("Kết nối đã ban êy")
+            }
+        }
+    }
+
+    class ElectricLamp {
+        status;
+
+        constructor() {
+            this.status = status
+        }
+
+        getStatus() {
+            if (this.status) {
+                console.log('bong den dang sang')
+            } else {
+                console.log('bong den khong sang')
+            }
+        }
+
+        turnOn() {
+            this.status = true
+        }
+
+        turnOff() {
+            this.status = false
+        }
+    }
+
+    let switchButton = new Switch(false)
+    let lamp = new ElectricLamp(false)
+
+    switchButton.connectToLamp(lamp)
+
+    function on() {
+        switchButton.switchOn()
+        lamp.getStatus()
+        switchButton.getStatus()
+    }
+
+    function off() {
+        switchButton.switchOff()
+        lamp.getStatus()
+        switchButton.getStatus()
     }
 </script>
 

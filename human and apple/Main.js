@@ -1,0 +1,7 @@
+let apple = new Apple(10)
+let human  = new Human('nhu anh','male',50)
+// console.log(human.getName())
+// console.log(human.getGender())
+// console.log(human.getWeight())
+// human.setGender('other')
+// console.log(human.checkApple(apple))

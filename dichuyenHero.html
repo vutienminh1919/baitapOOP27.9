@@ -36,7 +36,8 @@ function heroStart(){
             hero.moveRight();
         }
         document.getElementById('game').innerHTML = hero.getHeroElement();
-        setTimeout(heroStart,500)
+
+        requestAnimationFrame(heroStart)
 }heroStart()
 
 
